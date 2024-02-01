@@ -1,0 +1,29 @@
+<!-- Para heredar la base.html -->
+{% extends 'base.html'%}
+
+{% block content%}
+<div class="container">
+
+    <div class="header">
+        <h2 class="mb-3 mt-3">{% block title %}Tus publicaciones{% endblock %}</h2>
+        <div class="d-flex justify-content-between mb-3">
+            <p>¡Bienvenido al panel  para asignar tu Basura!
+            </p>
+        </div>
+    </div>
+    <table class=" table">
+        <thead>
+            <tr>
+                <th class="fs-5">Asignación de Basura </th>
+                <th colspan="2" class="fs-5">Acciones</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+
+<!-- Se agrega la siguiente línea para cambiar el tipo de color del mensaje de guardado -->
+{% block message %} alert-success {% endblock %}
+{% block footer %}
+<!-- Dejar el bloque del footer vacío para que no se muestre en esta página -->
+{% endblock %}

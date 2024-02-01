@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <title>Ruta 33</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estiloUserBasura.css') }}" />
+  <script type="text/javascript" src="{{ url_for('static', filename='js/userBasura.js') }}"></script>
+  <style>
+    #miCuadroDeTexto {
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="map"></div>
+  <p> Selecciona la ubicación en la que quieres que recolectemos tu basura, después presiona el botón de enviar.
+    Atenderemos tu solicitud el día especificado.
+    Solo tenemos cobertura en las áreas coloreadas.
+  </p>
+
+  <input type="date" id="fecha" name="fecha">
+
+  <button id="BotonEnviar">Enviar solicitud</button>
+  <input type="text" id="miCuadroDeTexto">
+
+
+
+
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHbkUW4InRIU2Yi7mKJ7XHOigyK_b3OlM&callback=initMap&libraries=geometry&v=weekly"></script>
+
+  <script defer type="text/javascript" src="{{ url_for('static', filename='js/solicitudUser.js') }}"></script>
+
+  <!-- <script type="module" src="./actualizar.js"> </script> -->
+
+</body>
+
+</html>

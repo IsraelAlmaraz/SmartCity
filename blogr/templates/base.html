@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCity {% block title %} JIM {% endblock %}</title>
+
+    {% block head%}
+    <!-- Estilos de bootstrap y de app -->
+    <!-- Se agrga el url_for para que los pueda encontrar el HTML, ya que se esta trabajando con JINJa2 de Flask -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    {% endblock %}
+</head>
+
+<body>
+    <!-- Este es el menu de navegación -->
+    {% block header%}
+    <header class="p-3 ">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                
+                <ul class="navbar">
+                    <li><a href="{{url_for('home.index')}}" class="btn btn-outline-light me-2 no-border"> Home </a></li>
+                     
+                   <li><a href="#AcercaDe" class="btn btn-outline-light me-2 no-border"> Acerca De</a></li>
+                   <li><a href="#Menu" class="btn btn-outline-light me-2 no-border">Recolectar Basura </a></li>
+                   <li><a href="{{ url_for('home.index2') }}" class="btn btn-outline-light me-2 no-border">Smart Cityt Rutas</a></li>
+                   
+                </ul>
+                <div class="text-end">
+                      
+       
+                    <!-- Si no existe un usuario activo, entonces se tiene que iniciar sección o crear uno -->
+
+                    
+                    {% if not g.user and not g.gbt_user %}
+                   
+                    <a href="{{url_for('auth.registerVIEW')}}" class="btn btn-warning w-10">Registrate</a>
+                    <a href="{{ url_for('authGBT.registerGBTVIEW') }}" class="btn btn-warning w-10 h-10 ">Recolector</a>
+
+                  
+                    {% else %}
+
+                    <a href="#" class="link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+                        {% if g.user.photo  is none or g.gbt_user.photo  is none%}
+                        <img src="{{url_for('static', filename='img/perfil1.jpg')}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                        {% else %}
+                        <img src="{{url_for('static', filename=g.user.photo)}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                        {% endif%}
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        <!-- User name -->
+                        <li>
+                            <span class="dropdown-item fw-bold">¡Hola, {{ g.user.username if g.user else g.gbt_user.username }}</span>
+                        </li>
+                        <li>
+                            <hr>
+                        </li>
+                        
+                        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ url_for('post.postsVIEW') }}">
+                            <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+                            Recolección de Basura
+                        </a></li>
+                    
+                    {% if g.user %}
+                        <!-- Perfil para usuarios normales -->
+                        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ url_for('auth.profileVIEW_auth', id=g.user.id) }}">
+                            <span class="d-inline-block bg-info rounded-circle p-1"></span>
+                            Perfil
+                        </a></li>                    
+                    {% endif %}
+
+                    {% if g.gbt_user%}
+                        <!-- Perfil para usuarios GBT -->
+                        <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ url_for('authGBT.profileGBTVIEW', id=g.gbt_user.id) }}">
+                            <span class="d-inline-block bg-info rounded-circle p-1"></span>
+                            Perfil GBT
+                        </a></li>
+                    {% endif %}
+                    
+                        
+
+                        
+<li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{% if g.user %}{{ url_for('auth.logoutVIEW_auth') }}{% elif g.gbt_user %}{{ url_for('authGBT.logoutVIEW') }}{% endif %}">
+    <span class="d-inline-block bg-danger rounded-circle p-1"></span>
+    Cerrar sesión
+</a></li>
+<!-- ... -->
+{% endif %}
+
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock%}
+    
+    
+    <!-- Mensaje de error -->
+    {% for massage in get_flashed_messages() %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="alert {% block message %} alert-danger {% endblock %}" role="alert">
+                    {{ massage }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+    <!-- Sección de bienvenida -->
+    {% block content %}
+   
+    {% endblock %}
+
+    <!-- Se agrga el url_for para que los pueda encontrar el HTML, ya que se esta trabajando con JINJa2 de Flask -->
+    <script src="{{url_for('static', filename = 'js/bootstrap.bundle.min.js')}}"></script>
+    <!-- El JavaScript de ckeditor -->
+    {{ ckeditor.load() }}
+
+    <!-- Contenido del footer -->
+{% block footer %}
+<section class="footer">
+    <div class="footer-box">
+        <h2>Smart City</h2>
+        <div class="social align-items-center">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-tiktok'></i></a>
+        </div>
+    </div>
+   
+   
+
+ </section>
+<!--Copyright--> 
+<div class="copyright">
+<p> &#169; RaspberryPi All Right Reserved</p>
+</div>
+
+{% endblock %}
+
+   
+  
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!-- Para heredar la base.html -->
+{% extends 'base.html'%}
+
+
+{% block content%}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+
+    
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estiloUserBasura.css') }}" />
+<script type="text/javascript" src="{{ url_for('static', filename='js/userBasura.js') }}"></script>
+<div class="container">
+
+    <div class="header">
+        <h2 class="mb-3 mt-3">{% block title %}Tus publicaciones{% endblock %}</h2>
+        <div class="d-flex justify-content-between mb-3">
+            <p>¡Bienvenido al panel para asignar tu Basura!
+            </p>
+        </div>
+    </div>
+
+    <p> Selecciona la ubicación en la que quieres que recolectemos tu basura, después presiona el botón de enviar.
+        Atenderemos tu solicitud el día especificado.
+        Solo tenemos cobertura en las áreas coloreadas.
+    </p>
+    
+    <input type="date" id="fecha" name="fecha">
+    
+    <form>
+        <label class="fs-5" for="miCuadroDeTexto"> Alias de la dirección: </label>
+        <input type="text" id="miCuadroDeTexto" name="miCuadroDeTexto">
+    </form>
+    
+    <button class="w-30 btn btn-lg btn-primary login-submit" id="BotonEnviar">Enviar solicitud</button>
+    <table class=" table">
+        <thead>
+            <tr>
+                <th class="fs-5">Asignación de Basura </th>
+                <th colspan="2" class="fs-5">Acciones</th>
+            </tr>
+        </thead>
+    </table>
+
+</div>
+<div id="map"></div>
+
+
+
+
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHbkUW4InRIU2Yi7mKJ7XHOigyK_b3OlM&callback=initMap&libraries=geometry&v=weekly"></script>
+
+<script defer type="text/javascript" src="{{ url_for('static', filename='js/solicitudUser.js') }}"></script>
+
+<!-- <script type="module" src="./actualizar.js"> </script> -->
+
+</body>
+{% endblock %}
+
+<!-- Se agrega la siguiente línea para cambiar el tipo de color del mensaje de guardado -->
+{% block message %} alert-success {% endblock %}
+{% block footer %}
+<!-- Dejar el bloque del footer vacío para que no se muestre en esta página -->
+{% endblock %}

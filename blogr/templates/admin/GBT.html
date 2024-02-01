@@ -1,0 +1,46 @@
+<html>
+  {% extends 'base.html'%}
+
+
+  {% block content%}
+<head>
+  <title>Ruta 33</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mapaRecolector.css') }}" />
+  <script type="text/javascript" src="{{ url_for('static', filename='js/conductorBasura.js') }}"></script>
+</head>
+
+<body>
+  <p class=""> Cada marcador representa el punto de recogida de la basura. Para indicar si vas a atender una solicitud,
+    si ya la completaste, o si no se pudo completar, presionar sobre el marcador y después el botón correspondiente.
+  </p>
+
+  <button id="enCamino" class="w-30 btn btn-lg btn-primary login-submit"> En camino </button>
+
+  <button id="completado" class="w-30 btn btn-lg btn-primary login-submit"> Solicitud Completada </button>
+
+  <button id="errorAlCompletar" class="w-30 btn btn-lg btn-primary login-submit"> No pude completar tu solicitud </button>
+
+
+  <div id="map"></div>
+  
+
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHbkUW4InRIU2Yi7mKJ7XHOigyK_b3OlM&callback=initMap&libraries=geometry&v=weekly"></script>
+
+  <script defer type="text/javascript" src="{{ url_for('static', filename='js/mapaRecolector.js') }}"></script>
+
+  <!-- <script type="module" src="./actualizar.js"> </script> -->
+
+</body>
+{% endblock %}
+
+<!-- Se agrega la siguiente línea para cambiar el tipo de color del mensaje de guardado -->
+{% block message %} alert-success {% endblock %}
+{% block footer %}
+<!-- Dejar el bloque del footer vacío para que no se muestre en esta página -->
+{% endblock %}
+</html>

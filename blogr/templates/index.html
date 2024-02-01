@@ -1,0 +1,29 @@
+<!-- En esta parte se lleva acabo el codigo HTML de la página de inicio -->
+
+<!-- Para heredar la base.html -->
+{% extends 'base.html'%}
+
+
+
+{% block content %}
+
+    <!-- Sección de bienvenida de la página -->
+    <section  {{value}}>
+        <div class="row">
+            <div class="col-md-6 py-7">
+               <div class=" container2">          
+                <img  src="{{url_for('static', filename='img/slide6.png')}}" alt="image" class="mb-4">
+
+               
+                <a href="{{url_for('auth.registerVIEW')}}" class="btn btn-outline-dark w-100  ">Registrate</a>
+                </div> 
+            </div>
+           
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block footer %}
+<!-- Dejar el bloque del footer vacío para que no se muestre en esta página -->
+{% endblock %}

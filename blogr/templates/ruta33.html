@@ -1,0 +1,32 @@
+<html>
+<!-- En esta parte se lleva acabo el codigo HTML de la página de inicio -->
+
+<!-- Para heredar la base.html -->
+{% extends 'base.html' %}
+{% block content %}
+<head>
+  <title>Ruta 33</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleRuta33.css') }}" />
+  <script type="text/javascript" src="{{ url_for('static', filename='js/mTPruta33.js') }}"></script>
+</head>
+
+<body>
+  
+  <div id="map"></div>
+
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHbkUW4InRIU2Yi7mKJ7XHOigyK_b3OlM&callback=initMap&v=weekly"></script>
+
+  <script defer type="text/javascript" src="{{ url_for('static', filename='js/actualizarRuta33.js') }}"></script>
+
+  <!-- <script type="module" src="./actualizar.js"> </script> -->
+
+</body>
+{% endblock %}
+
+
+</html>

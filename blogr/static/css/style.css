@@ -1,0 +1,220 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: black;
+
+}
+
+header{
+    background-color: black;
+}
+
+.navbar {
+    background: black;
+    display: flex;
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+  }
+  
+  .navbar li {
+    margin-right: 10px; /* Añade un espacio entre los elementos de la lista */
+  }
+  
+  .navbar a {
+    display: inline-block;
+    padding: 5px 7px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+    color: #fff; /* Establece el color del texto */
+  }
+  
+  .navbar a:hover {
+    background: #727272;
+    border-radius: 0.2rem;
+    transition: background 0.2s linear; /* Solo aplica transición al fondo */
+  }
+  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Amiri, Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #fff;
+}
+ p{
+    color: #fff;
+ }
+.container2 {
+    width: 204%; /* Ajusta según sea necesario */
+    min-height: 215%; /* Garantiza al menos el 100% de la altura de la ventana */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    
+  }
+  
+  .container2 img {
+    width:auto;
+    height: auto; /* Esto mantiene la relación de aspecto */
+  }
+  
+  .container2 a {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho del contenedor */
+    margin-top: 10px; /* Agrega un margen superior al botón */
+  }
+  .container3 {
+    width: 170%; /* Ajusta según sea necesario */
+    min-height: 90vh; /* Garantiza al menos el 100% de la altura de la ventana */
+    padding: 2px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+   
+  }
+  
+  .container3 img {
+    max-width: 90%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Esto mantiene la relación de aspecto */
+  }
+  .container3 a {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho del contenedor */
+    margin-top: 10px; /* Agrega un margen superior al botón */
+  }
+.display-4 {
+    font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .display-4 {
+        font-size: 3rem;
+    }
+}
+
+.flex-auto {
+    flex: 0 0 auto;
+}
+
+.h-250 {
+    height: 250px;
+}
+
+@media (min-width: 768px) {
+    .h-md-250 {
+        height: 250px;
+    }
+}
+
+/*
+   * Blog posts
+   */
+.blog-post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.blog-post-title {
+    font-size: 1.5rem;
+}
+
+.blog-post-meta {
+    margin-bottom: 1.25rem;
+    color: black;
+}
+
+ 
+
+
+.no-border {
+    border: none;
+  }
+ /* .footer
+{ 
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,auto));
+    align-items:center;
+    gap: 1.5rem;
+
+ }
+ .footer-box h2
+ {
+   font-size: 1.2rem;
+   font-weight: 600;
+   margin-bottom: 10px ;
+ }
+ .footer-box p
+ {
+    font-size: 0.938rem;
+    margin-bottom: 10px;
+}
+.footer-box h3
+{
+    font-weight: 600;
+    margin-bottom: 10px;
+
+}
+.footer-box  li a
+{
+    color:black;
+}
+.footer-box  li a:hover
+{
+    color: #bc9667;
+}
+.contact
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+.contact span
+{
+    display: flex;
+    align-items: center;
+
+}
+.contact i
+{
+    font-size: 20px;
+    margin-right: 1rem;
+}*/
+.social
+{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+.social a .bx
+{
+    font-size: 24px;
+    color:goldenrod;
+    padding: 10px;
+    background:black;
+    border-radius: 0.2rem;
+
+}
+.social a .bx:hover
+{
+    background: goldenrod ;
+    color: whitesmoke;
+
+}
+
+.copyright
+{
+    padding: 0.2rem;
+    text-align: center;
+    background: none;
+}
